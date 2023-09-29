@@ -1,10 +1,10 @@
 {
   "name": "foodapp",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server":"nodemon index.js"
   },
   "keywords": [],
   "author": "",
@@ -15,5 +15,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^7.5.3",
     "nodemon": "^3.0.1"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }
