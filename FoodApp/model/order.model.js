@@ -26,3 +26,8 @@ status:{
 
 })
 
+const orderModel=mongoose.model("order",orderSchema)
+
+module.exports={
+    orderModel
+}
