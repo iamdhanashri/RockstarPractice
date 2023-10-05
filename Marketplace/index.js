@@ -2,6 +2,8 @@ const express=require("express");
 const { dbConnection } = require("./config/db");
 const { userRouter } = require("./route/user.route");
 const { listingRouter } = require("./route/listing.route");
+const { prodRouter } = require("./route/product.route");
+const { cartRouter } = require("./route/cart.route");
 
 const app=express();
 app.use(express.json());
@@ -13,7 +15,8 @@ app.get("/",(req,res)=>{
 
 app.use("/api",userRouter)
 app.use("/api",listingRouter)
-
+app.use("/api",prodRouter)
+app.use("/api",cartRouter)
 
 app.listen(8080,async()=>{
     try{

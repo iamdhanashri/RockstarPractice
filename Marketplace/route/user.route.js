@@ -53,7 +53,29 @@ userRouter.post("/login",async(req,res)=>{
     }
 })
 
+// get
 
+userRouter.get("/users",async(req,res)=>{
+    const user= await userModel.find()
+    res.status(200).send(user)
+})
+
+
+// getId 
+
+userRouter.get("/users/:id",async(req,res)=>{
+    const id =req.params.id
+    const user =await userModel.findOne({_id:id})
+    res.status(200).send(user)
+})
+
+ //patchId
+
+ userRouter.patch("/users/:id",async(req,res)=>{
+    const userID=req.params.id
+    await userModel.findByIdAndUpdate({_id:userID}) 
+    res.send({"msg":`user with id:${userID} has been updated`})
+ })
 
 module.exports={
     userRouter

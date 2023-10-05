@@ -4,7 +4,6 @@ const mongoose=require("mongoose")
 const listingSchema=mongoose.Schema({
     title: String,
     description: String,
-    password: String,
     price: Number,
     category:String,
     owner:[{type: mongoose.Schema.Types.ObjectId,

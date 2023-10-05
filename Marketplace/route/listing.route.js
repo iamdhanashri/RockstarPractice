@@ -2,6 +2,7 @@
 const bcrypt = require("bcrypt")
 const express=require("express")
 const jwt=require("jsonwebtoken")
+const { listingModel } = require("../model/listing.model")
 
 const listingRouter=express.Router()
 
@@ -33,20 +34,18 @@ listingRouter.get("/listings/:id",async(req,res)=>{
 
 // deleteId
 
-
 listingRouter.delete("/listings/:id",async(req,res)=>{
-    const listID=req.parems.id
+    const listID=req.params.id
     await listingModel.findByIdAndDelete({_id:listID}) 
-    res.send({"msg":`note with id:${listID} has been deleted`})
+    res.send({"msg":`list with id:${listID} has been deleted`})
  })
 
  //patchId
 
- 
 listingRouter.patch("/listings/:id",async(req,res)=>{
-    const listID=req.parems.id
+    const listID=req.params.id
     await listingModel.findByIdAndUpdate({_id:listID}) 
-    res.send({"msg":`note with id:${listID} has been updated`})
+    res.send({"msg":`list with id:${listID} has been updated`})
  })
 
  module.exports={
