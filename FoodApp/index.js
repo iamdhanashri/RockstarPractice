@@ -17,7 +17,7 @@ app.get("/",(req,res)=>{
 
 app.use("/api",userRouter)
 app.use("/api",restRouter)
-app.use("api",orderRouter)
+app.use("/api",orderRouter)
 
 
 app.listen(8080,async()=>{

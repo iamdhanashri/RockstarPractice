@@ -47,12 +47,16 @@ orderRouter.get('/orders/:id', async (req, res) => {
 
 orderRouter.put('/orders/:id', async (req, res) => {
  
-      const { status } = req.body;
+    //   const { status } = req.body;
       const id =req.params.id
-      const order =await orderModel.findOne({_id:id})
-      order.status = status;
-      await order.save();
-      res.status(204).send("stutus updated successfully");
+    //   const order =await orderModel.findOne({_id:id})
+    //   order.status = status;
+
+
+    await orderModel.findByIdAndUpdate({ _id: id }, req.body)
+    // res.send("note updated successfully");
+    //   await order.save();
+      res.status(204).send("updated successfully");
     
   });
 
