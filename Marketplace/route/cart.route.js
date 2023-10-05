@@ -8,8 +8,8 @@ const cartRouter=express.Router()
 
 // post 
 
-cartRouter.post("/listings",async(req,res)=>{
-    const cart=new cartModelModel(req.body)
+cartRouter.post("/cart",async(req,res)=>{
+    const cart=new cartModel(req.body)
     await cart.save()
     res.send("cart created") 
 })
@@ -17,16 +17,16 @@ cartRouter.post("/listings",async(req,res)=>{
 // deleteId
 
 
-cartRouter.delete("/listings/:id",async(req,res)=>{
-    const cartID=req.parems.id
+cartRouter.delete("/cart/:id",async(req,res)=>{
+    const cartID=req.params.id
     await cartModel.findByIdAndDelete({_id:cartID}) 
     res.send({"msg":`cart with id:${cartID} has been deleted`})
  })
 
  //patchId
 
- cartRouter.patch("/listings/:id",async(req,res)=>{
-    const cartID=req.parems.id
+ cartRouter.patch("/cart/:id",async(req,res)=>{
+    const cartID=req.params.id
     await cartModel.findByIdAndUpdate({_id:cartID}) 
     res.send({"msg":`cart with id:${cartID} has been updated`})
  })
