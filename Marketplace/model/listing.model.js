@@ -5,14 +5,14 @@ const listingSchema=mongoose.Schema({
     title: String,
     description: String,
     password: String,
-    price: String,
+    price: Number,
     category:String,
     owner:[{type: mongoose.Schema.Types.ObjectId,
         ref: 'user'}] 
     
 })
 
-const listingModel=mongoose.model("user",listingSchema)
+const listingModel=mongoose.model("listing",listingSchema)
 
 module.exports={
     listingModel

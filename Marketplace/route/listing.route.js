@@ -30,3 +30,25 @@ listingRouter.get("/listings/:id",async(req,res)=>{
     const list =await listingModel.findOne({_id:id})
     res.status(200).send(list)
 })
+
+// deleteId
+
+
+listingRouter.delete("/listings/:id",async(req,res)=>{
+    const listID=req.parems.id
+    await listingModel.findByIdAndDelete({_id:listID}) 
+    res.send({"msg":`note with id:${listID} has been deleted`})
+ })
+
+ //patchId
+
+ 
+listingRouter.patch("/listings/:id",async(req,res)=>{
+    const listID=req.parems.id
+    await listingModel.findByIdAndUpdate({_id:listID}) 
+    res.send({"msg":`note with id:${listID} has been updated`})
+ })
+
+ module.exports={
+  listingRouter
+ }

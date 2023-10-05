@@ -1,6 +1,7 @@
 const express=require("express");
 const { dbConnection } = require("./config/db");
 const { userRouter } = require("./route/user.route");
+const { listingRouter } = require("./route/listing.route");
 
 const app=express();
 app.use(express.json());
@@ -11,6 +12,8 @@ app.get("/",(req,res)=>{
 })
 
 app.use("/api",userRouter)
+app.use("/api",listingRouter)
+
 
 app.listen(8080,async()=>{
     try{
